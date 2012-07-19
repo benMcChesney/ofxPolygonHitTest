@@ -15,6 +15,12 @@ class ofxPolygonHitTest
         //Common shape generation
         vector<ofVec2f> createRectanglePts ( float width , float height ) ;
 
+         static ofxPolygonHitTest* Instance()
+         {
+             static ofxPolygonHitTest inst ;
+             return &inst ;
+         }
+
 
     protected:
     private:

@@ -3,6 +3,7 @@
 BasePolyObject::BasePolyObject()
 {
     //ctor
+    rotation = 0 ;
 }
 
 BasePolyObject::~BasePolyObject()
@@ -34,13 +35,13 @@ void BasePolyObject::baseDraw( )
 
 void BasePolyObject::randomizePolygon( )
 {
-    float rotateAmount = ofRandom( 360 ) ;
+    rotation = ofRandom( 360 ) ;
     for( int i = 0 ; i < pts.size() ; i++ )
     {
         //Reset positions of points to normalized around the pivot
         ofVec2f p = pts[i] - pivot ;
         //Rotate the points from the pivot
-        p.rotate( rotateAmount ) ;
+        p.rotate( rotation ) ;
         pts[i] = p + pivot ;
     }
 

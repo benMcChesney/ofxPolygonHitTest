@@ -21,6 +21,8 @@ class BasePolyObject
         void baseDraw( ) ;
         ofColor baseColor ;
 
+        float rotation ;
+
 
 
     protected:
