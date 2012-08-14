@@ -21,6 +21,8 @@ class ofxPolygonHitTest
              return &inst ;
          }
 
+         ofEvent<int> INPUT_DOWN ;
+
 
     protected:
     private:

@@ -22,11 +22,12 @@ void BasePolyObject::baseDraw( )
     ofFill() ;
     ofBeginShape ( ) ;
 
+
         ofSetColor( 255 - baseColor.r , 255 - baseColor.g , 255 - baseColor.b ) ;
         for( int p = 0 ; p < pts.size() ; p++ )
             ofCircle( pts[p] , 4 ) ; //( pts[i].x ,pts[i].y ) ;
 
-        ofSetColor( baseColor ) ;
+        ofSetColor( 125 , 125 ) ;
         for( int i = 0 ; i < pts.size() ; i++ )
             ofVertex( pts[i].x ,pts[i].y ) ;
 
@@ -60,5 +61,24 @@ void BasePolyObject::setPoints( vector<ofVec2f> polyPts )
 
 void BasePolyObject::addPoint( float x , float y )
 {
+    addLocalPoint( x , y ) ;
+}
+
+void BasePolyObject::addLocalPoint( float x , float y )
+{
     pts.push_back( ofVec2f( pivot.x + x , pivot.y + y ) ) ;
 }
+
+void BasePolyObject::addGlobalPoint( float x , float y )
+{
+    pts.push_back( ofVec2f( x , y ) ) ;
+}
+
+void BasePolyObject::outputPtsToConsole( )
+{
+    for ( int p = 0 ; p < pts.size() ; p++ )
+    {
+        cout << "@ " << p << " x:" << pts[p].x << " , y:" << pts[p].y << endl ;
+    }
+}
+

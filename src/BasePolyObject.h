@@ -14,14 +14,20 @@ class BasePolyObject
 
         void randomizePolygon ( )  ;
 
-        void setup ( int npts , ofVec2f center ) ;
-        void addPoint ( float x , float y ) ;
+        void setup ( int npts , ofVec2f _pivot ) ;
+        void addPoint ( float x , float y ) ;           //calls add LocalPoint( ) ;
+        void addLocalPoint( float x , float y ) ;       //With the pivot point added to it
+        void addGlobalPoint ( float x , float y ) ;     //without adding it to the pivot point
         void setPoints( vector<ofVec2f> _points ) ;
+
+
 
         void baseDraw( ) ;
         ofColor baseColor ;
 
         float rotation ;
+
+        void outputPtsToConsole( ) ;
 
 
 
